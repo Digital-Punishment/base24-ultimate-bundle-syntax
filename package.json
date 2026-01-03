@@ -1,7 +1,7 @@
 {
-  "name": "base16-syntax",
+  "name": "base16-compilation-syntax",
   "theme": "syntax",
-  "main": "./lib/base16",
+  "main": "./lib/base16c",
   "version": "1.8.1",
   "description": "A Base16 syntax theme with support for all Base16 color schemes and styles.",
   "keywords": [
@@ -66,10 +66,10 @@
     "yesterday night",
     "yesterday"
   ],
-  "repository": "https://github.com/alchiadus/base16-syntax",
+  "repository": "https://github.com/Digital-Punishment/base16-compilation-syntax",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.13.0 <2.0.0"
+    "atom": ">=1.100.0 <2.0.0"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.0"
