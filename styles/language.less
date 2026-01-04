@@ -1,6 +1,7 @@
 .syntax--comment {
-  .if (@base16-style, 'dark', color, @base16-color-base03);
-  .if (@base16-style, 'light', color, @base16-color-base04);
+  // .if (@base16-style, 'dark', color, @base16-color-base03);
+  // .if (@base16-style, 'light', color, @base16-color-base04);
+  color: if(@base16-reverseColors, @base16-color-base04, @base16-color-base03);
 }
 
 .syntax--constant {
@@ -30,8 +31,9 @@
 .syntax--entity {
   &.syntax--name {
     &.syntax--class {
-      .if (@base16-style, 'dark', color, @base16-color-base0A);
-      .if (@base16-style, 'light', color, @base16-color-base09);
+      // .if (@base16-style, 'dark', color, @base16-color-base0A);
+      // .if (@base16-style, 'light', color, @base16-color-base09);
+      color: if(@base16-reverseColors, @base16-color-base09, @base16-color-base0A)
     }
 
     &.syntax--function {
@@ -48,8 +50,9 @@
 
     &.syntax--type {
       &.syntax--class {
-        .if (@base16-style, 'dark', color, @base16-color-base0A);
-        .if (@base16-style, 'light', color, @base16-color-base09);
+        // .if (@base16-style, 'dark', color, @base16-color-base0A);
+        // .if (@base16-style, 'light', color, @base16-color-base09);
+        color: if(@base16-reverseColors, @base16-color-base09, @base16-color-base0A);
       }
     }
   }
@@ -70,8 +73,9 @@
 }
 
 .syntax--invalid.syntax--illegal {
-  .if (@base16-style, 'dark', color, @base16-color-base00);
-  .if (@base16-style, 'light', color, @base16-color-base07);
+  // .if (@base16-style, 'dark', color, @base16-color-base00);
+  // .if (@base16-style, 'light', color, @base16-color-base07);
+  color: if(@base16-reverseColors, @base16-color-base07, @base16-color-base00);
   background-color: @base16-color-base08;
 }
 
@@ -79,8 +83,9 @@
   color: @base16-color-base0E;
 
   &.syntax--arithmetic {
-    .if (@base16-style, 'dark', color, @base16-color-base05);
-    .if (@base16-style, 'light', color, @base16-color-base02);
+    // .if (@base16-style, 'dark', color, @base16-color-base05);
+    // .if (@base16-style, 'light', color, @base16-color-base02);
+    color: if(@base16-reverseColors, @base16-color-base02, @base16-color-base05);
   }
 
   &.syntax--other {
@@ -97,8 +102,9 @@
 .syntax--markup {
   &.syntax--bold {
     font-weight: bold;
-    .if (@base16-style, 'dark', color, @base16-color-base0A);
-    .if (@base16-style, 'light', color, @base16-color-base09);
+    // .if (@base16-style, 'dark', color, @base16-color-base0A);
+    // .if (@base16-style, 'light', color, @base16-color-base09);
+    color: if(@base16-reverseColors, @base16-color-base09, @base16-color-base0A);
   }
 
   &.syntax--changed {
@@ -139,8 +145,9 @@
 
 .syntax--meta {
   &.syntax--class {
-    .if (@base16-style, 'dark', color, @base16-color-base07);
-    .if (@base16-style, 'light', color, @base16-color-base01);
+    // .if (@base16-style, 'dark', color, @base16-color-base07);
+    // .if (@base16-style, 'light', color, @base16-color-base01);
+    color: if(@base16-reverseColors, @base16-color-base01, @base16-color-base07);
   }
 
   &.syntax--link {
@@ -156,16 +163,19 @@
   }
 
   &.syntax--separator {
-    .if (@base16-style, 'dark', color, @base16-color-base05);
-    .if (@base16-style, 'light', color, @base16-color-base02);
-    .if (@base16-style, 'dark', background-color, @base16-color-base02);
-    .if (@base16-style, 'light', background-color, @base16-color-base06);
+    // .if (@base16-style, 'dark', color, @base16-color-base05);
+    // .if (@base16-style, 'light', color, @base16-color-base02);
+    color: if(@base16-reverseColors, @base16-color-base02, @base16-color-base05);
+    // .if (@base16-style, 'dark', background-color, @base16-color-base02);
+    // .if (@base16-style, 'light', background-color, @base16-color-base06);
+    background-color: if(@base16-reverseColors, @base16-color-base06, @base16-color-base02);
   }
 }
 
 .syntax--none {
-  .if (@base16-style, 'dark', color, @base16-color-base05);
-  .if (@base16-style, 'light', color, @base16-color-base02);
+  // .if (@base16-style, 'dark', color, @base16-color-base05);
+  // .if (@base16-style, 'light', color, @base16-color-base02);
+  color: if(@base16-reverseColors, @base16-color-base02, @base16-color-base05);
 }
 
 .syntax--punctuation {
@@ -174,19 +184,22 @@
     &.syntax--parameters,
     &.syntax--string,
     &.syntax--variable {
-      .if (@base16-style, 'dark', color, @base16-color-base05);
-      .if (@base16-style, 'light', color, @base16-color-base02);
+      // .if (@base16-style, 'dark', color, @base16-color-base05);
+      // .if (@base16-style, 'light', color, @base16-color-base02);
+      color: if(@base16-reverseColors, @base16-color-base02, @base16-color-base05);
     }
 
     &.syntax--bold {
       font-weight: bold;
-      .if (@base16-style, 'dark', color, @base16-color-base0A);
-      .if (@base16-style, 'light', color, @base16-color-base09);
+      // .if (@base16-style, 'dark', color, @base16-color-base0A);
+      // .if (@base16-style, 'light', color, @base16-color-base09);
+      color: if(@base16-reverseColors, @base16-color-base09, @base16-color-base0A);
     }
 
     &.syntax--comment {
-      .if (@base16-style, 'dark', color, @base16-color-base03);
-      .if (@base16-style, 'light', color, @base16-color-base04);
+      // .if (@base16-style, 'dark', color, @base16-color-base03);
+      // .if (@base16-style, 'light', color, @base16-color-base04);
+      color: if(@base16-reverseColors, @base16-color-base04, @base16-color-base03);
     }
 
     &.syntax--entity {
@@ -226,10 +239,11 @@
 
 .syntax--support {
   &.syntax--class {
-    .if (@base16-style, 'dark', color, @base16-color-base0A);
-    .if (@base16-style, 'light', color, @base16-color-base09);
+    // .if (@base16-style, 'dark', color, @base16-color-base0A);
+    // .if (@base16-style, 'light', color, @base16-color-base09);
+    color: if(@base16-reverseColors, @base16-color-base09, @base16-color-base0A);
   }
-  
+
   &.syntax--type {
     color: @base16-color-base0C;
   }
@@ -252,8 +266,9 @@
 
   &.syntax--parameter {
     &.syntax--function {
-      .if (@base16-style, 'dark', color, @base16-color-base05);
-      .if (@base16-style, 'light', color, @base16-color-base02);
+      // .if (@base16-style, 'dark', color, @base16-color-base05);
+      // .if (@base16-style, 'light', color, @base16-color-base02);
+      color: if(@base16-reverseColors, @base16-color-base02, @base16-color-base05);
     }
   }
 }
