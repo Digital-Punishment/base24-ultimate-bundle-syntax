@@ -65,7 +65,7 @@
         "Yesterday"
       ]
     },
-    "reverseColors": {
+    "invertColors": {
       "type": "boolean",
       "default": false
     }

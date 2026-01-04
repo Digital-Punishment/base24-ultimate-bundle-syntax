@@ -1,10 +1,8 @@
+// This defines styling rules for the editor.
+
 atom-text-editor {
   background-color: @syntax-background-color;
   color: @syntax-text-color;
-
-  .cursor {
-    border-color: @syntax-cursor-color;
-  }
 
   .wrap-guide {
     background-color: @syntax-wrap-guide-color;
@@ -18,26 +16,13 @@ atom-text-editor {
     color: @syntax-invisible-character-color;
   }
 
-  .selection .region {
-    background-color: @syntax-selection-color;
-  }
-
-  .search-results .region {
-    .syntax--marker {
-      background-color: transparent;
-      border: @syntax-result-marker-color;
-    }
-
-    .syntax--marker.current-result {
-      border: @syntax-result-marker-color-selected;
-    }
-  }
-
   .gutter {
     background-color: @syntax-gutter-background-color;
     color: @syntax-gutter-text-color;
 
     .line-number {
+      padding: 0 0.25em 0 0.5em;
+      -webkit-font-smoothing: antialiased;
       &.cursor-line {
         background-color: @syntax-gutter-background-color-selected;
         color: @syntax-gutter-text-color-selected;
@@ -49,8 +34,29 @@ atom-text-editor {
     }
   }
 
-  // .line.cursor-line,
-  // .line-number.cursor-line-no-selection {
-  //   background-color: fade(@base16-color-base04, 33%);
-  // }
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @syntax-result-marker-color;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+
+  .bracket-matcher .region {
+    border-color: @syntax-result-marker-color;
+  }
+}
+
+atom-text-editor[mini] .scroll-view {
+  padding-left: 1px;
 }
