@@ -1,280 +1,803 @@
 @import 'colors';
 
+//Comments
 .syntax--comment {
-  color: if(@base16-invertColors, @light-gray, @gray);
+  font-style: italic;
+  color: @gray;   //@base16-color-base03
 }
 
+//Constants
 .syntax--constant {
-  color: @orange;
+  color: @orange;   //@base16-color-base09
 
+  //Regular Expressions and Escape Characters
   &.syntax--character {
-    &.syntax--escape {
-      color: @cyan;
-    }
+    color: @cyan;   //@base16-color-base0C
   }
 
+  //Built-in constants
+  &.syntax--language {
+    color: @yellow;   //@base16-color-base0A
+  }
+
+  //Integers
   &.syntax--numeric {
-    color: @orange;
+    color: @orange;   //@base16-color-base09
+    &.syntax--line-number {
+
+      //Search Results Nums
+      &.syntax--find-in-files:not(.syntax--match) {
+        color: @light-gray;   //@base16-color-base04
+      }
+
+      //Search Results Match Nums
+      &.syntax--match {
+        color: @orange;   //@base16-color-base09
+      }
+    }
   }
 
+  //Regular Expressions and Escape Characters
   &.syntax--other {
+    color: @orange;   //@base16-color-base09
+
+    //Colors
     &.syntax--color {
-      color:@cyan;
+      color: @cyan;   //@base16-color-base0C
     }
 
+    //Strings, Inherited Class
     &.syntax--symbol {
-      color: @green;
+      color: @green;   //@base16-color-base0B
     }
   }
 }
 
 .syntax--entity {
+
+  //Entity name
   &.syntax--name {
+    color: @blue;   //@base16-color-base0D
+
+    //Classes
     &.syntax--class {
-      color: @yellow;
+      color: @yellow;   //@base16-color-base0A
     }
 
+    //Constants
+    &.syntax--constant {
+      color: @purple;   //@base16-color-base0E
+    }
+
+    //Search Results Lines
+    &.syntax--filename.syntax--find-in-files {
+      color: @green;   //@base16-color-base0B
+    }
+
+    //Functions
     &.syntax--function {
-      color: @blue;
+      color: @blue;   //@base16-color-base0D
     }
 
+    //Imports and packages
+    &.syntax--import {
+      color: @green;   //@base16-color-base0B
+    }
+
+    //Imports and packages
+    &.syntax--package {
+      color: @green;   //@base16-color-base0B
+    }
+
+    //Headings
     &.syntax--section {
-      color: @blue;
+      font-weight: normal;
+      font-style: normal;
+      color: @blue;   //@base16-color-base0D
     }
 
+    //Tags
     &.syntax--tag {
-      color: @red;
+      color: @red;   //@base16-color-base08
     }
 
+    //Classes
     &.syntax--type {
-      &.syntax--class {
-        color: @yellow;
-      }
+      color: @yellow;   //@base16-color-base0A
     }
   }
-
   &.syntax--other {
-    &.syntax--attribute-name {
-      color: @orange;
 
+    //Attributes
+    &.syntax--attribute-name {
+      color: @orange;   //@base16-color-base09
+
+      //Attribute IDs
       &.syntax--id {
-        color: @blue;
+        color: @blue;   //@base16-color-base0D
       }
     }
 
+    //Strings, Inherited Class
     &.syntax--inherited-class {
-      color: @green;
+      color: @green;   //@base16-color-base0B
     }
   }
 }
 
-.syntax--invalid.syntax--illegal {
-  color: @syntax-background-color;
-  background-color: @red;
+//Invalid
+.syntax--invalid {
+  color: @red;   //@base16-color-base08
+
+  //Broken
+  &.syntax--broken {
+    background-color: @orange;   //@base16-color-base09
+    color: @black;   //@base16-color-base00
+  }
+
+  //Deprecated
+  &.syntax--deprecated {
+    background-color: @brown;   //@base16-color-base0F
+    color: @white;   //@base16-color-base07
+  }
+
+  //Illegal
+  &.syntax--illegal {
+    background-color: @red;   //@base16-color-base08
+    color: @white;   //@base16-color-base07
+  }
+
+  //Unimplemented
+  &.syntax--unimplemented {
+    background-color: @gray;   //@base16-color-base03
+    color: @white;   //@base16-color-base07
+  }
 }
+
+//Keywords
 
 .syntax--keyword {
-  color: @purple;
+  color: @purple;   //@base16-color-base0E
 
-  &.syntax--arithmetic {
-    color: if(@base16-invertColors, @dark-gray, @very-light-gray);
+  &.control.lambda {
+    color: @blue;   //@base16-color-base0D
   }
 
-  &.syntax--other {
-    &.syntax--special-method {
-      color: @blue;
+  //Operators
+  &.syntax--operator {
+    color: @purple;   //@base16-color-base0E
+
+    //Operators =, +=, -= etc
+    &.assignment {
+      color: @very-light-gray;   //@base16-color-base05
     }
 
+    //Comparison operators ==, !=, >, < etc
+    &.comparison {
+      color: @cyan;   //@base16-color-base0C
+    }
+
+    //Operators and, or, not etc
+    &.logical {
+      color: @cyan;   //@base16-color-base0C
+    }
+  }
+  &.syntax--other {
+
+    //Methods
+    &.syntax--special-method {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //Units
     &.syntax--unit {
-      color: @orange;
+      color: @orange;   //@base16-color-base09
     }
   }
 }
 
 .syntax--markup {
+
+  //Markup Bold
   &.syntax--bold {
-    color: @orange;
     font-weight: bold;
+    color: @yellow;   //@base16-color-base0A
+
+    //Markup Bold/italic
+    .syntax--markup.syntax--italic {
+      font-weight: bold;
+      font-style: italic;
+    }
   }
 
+  //Markup modified
   &.syntax--changed {
-    color: @purple;
+    color: @blue;   //@base16-color-base0D
   }
 
+  //Markup removed
   &.syntax--deleted {
-    color: @red;
+    color: @red;   //@base16-color-base08
   }
 
+  //Markup heading
+  &.syntax--heading {
+    font-weight: bold;
+    color: @blue;   //@base16-color-base0D
+
+    //Markup heading
+    .syntax--entity.syntax--name {
+      font-weight: bold;
+      color: @green;   //@base16-color-base0B
+    }
+
+    .syntax--punctuation.syntax--definition.syntax--heading {
+      font-weight: normal;
+      font-style: normal;
+      color: @blue;   //@base16-color-base0D
+    }
+  }
+
+  //Markup added
+  &.syntax--inserted {
+    color: @green;   //@base16-color-base0B
+  }
+
+  //Markup Italic
   &.syntax--italic {
-    color: @purple;
+    font-style: italic;
+    color: @purple;   //@base16-color-base0E
+
+    //Markup Bold/italic
+    .syntax--markup.syntax--bold {
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+
+  //Markup List Bullet
+  &.syntax--list {
+    color: @red;   //@base16-color-base08
+
+      .syntax--punctuation.syntax--definition.syntax--list.syntax--begin {
+        color: @cyan;   //@base16-color-base0C
+      }
+  }
+
+  //Markup Blockquote
+  &.syntax--quote {
+    color: @cyan;   //@base16-color-base0C
     font-style: italic;
   }
 
-  &.syntax--heading {
-    color: @red;
+  //Markup Code
+  &.syntax--raw {
+    color: @green;   //@base16-color-base0B
+    background-color: @dark-gray;   //@base16-color-base02
 
-    .syntax--punctuation.syntax--definition.syntax--heading {
-      color: @blue;
+    //Markup Code Inline
+    &.syntax--inline {
+      color: @green;   //@base16-color-base0B
+      background-color: @dark-gray;   //@base16-color-base02
     }
   }
 
-  &.syntax--link {
-    color: @blue;
-    text-decoration: underline;
-  }
-
-  &.syntax--inserted {
-    color: @green;
-  }
-
-  // ~~strike~~
+  //Markup Strike
   &.syntax--strike {
-    color: @red;
+    color: @brown;   //@base16-color-base0F
   }
 
-  &.syntax--quote {
-    color: @orange;
+  //Markup Table
+  &.syntax--table {
+    background-color: @dark-gray;   //@base16-color-base02
+    color: @blue;   //@base16-color-base0D
   }
 
-  &.syntax--raw {
-    color: @green;
+  //Markup links
+  &.syntax--underline {
+    text-decoration: underline;
+
+    &.syntax--link {
+      color: @orange;   //@base16-color-base09
+    }
   }
+}
+
+//message.error
+.syntax--message.syntax--error {
+  color: @red;   //@base16-color-base08
 }
 
 .syntax--meta {
+  color: @red;   //@base16-color-base08
+
+  //Constants
+  &.syntax--constant {
+    color: @orange;   //@base16-color-base09
+  }
+
+  //Classes
   &.syntax--class {
-    color: @syntax-text-color;
+    color: @yellow;   //@base16-color-base0A
   }
 
+  &.syntax--decorator {
+
+    //Decorators/annotation
+    .syntax--punctuation.syntax--decorator {
+      color: @brown;   //@base16-color-base0F
+    }
+
+    //Decorators/annotation
+    .syntax--variable.syntax--other {
+      color: @brown;   //@base16-color-base0F
+    }
+  }
+
+  //diff.header
+  &.syntax--diff {
+    color: @purple;   //@base16-color-base0E
+
+    //diff.header
+    &.syntax--header {
+      color: @purple;   //@base16-color-base0E
+    }
+  }
+
+  // //Function call
+  // &.syntax--function {
+  //   color: @blue;   //@base16-color-base0D
+  // }
+
+  //Function call
+  &.syntax--function-call.syntax--generic {
+    color: @brown;   //@base16-color-base0F
+  }
+
+  //Function arguments
+  &.syntax--parameter {
+    color: @red;   //@base16-color-base08
+  }
+
+  //Link Url
   &.syntax--link {
-    color: @orange;
+    color: @orange;   //@base16-color-base09
   }
 
+  //Functions
   &.syntax--require {
-    color: @blue;
+    color: @blue;   //@base16-color-base0D
   }
 
+  //Selector
   &.syntax--selector {
-    color: @purple;
+    color: @purple;   //@base16-color-base0E
   }
 
+  //Markdown Separator
   &.syntax--separator {
-    color: if(@base16-invertColors, @dark-gray, @very-light-gray);
-    background-color: if(@base16-invertColors, @almost-white, @dark-gray);
+    font-weight: bold;
+    background-color: @dark-gray;   //@base16-color-base02
+    color: @very-light-gray;   //@base16-color-base05
   }
-}
 
-.syntax--none {
-  color: if(@base16-invertColors, @dark-gray, @very-light-gray);
+  //Tag
+  &.syntax--tag.syntax--sgml {
+    color: @red;   //@base16-color-base08
+  }
 }
 
 .syntax--punctuation {
+
+  //Accessor
+  &.syntax--accessor {
+    color: @brown;   //@base16-color-base0F
+  }
   &.syntax--definition {
-    &.syntax--array,
-    &.syntax--parameters,
-    &.syntax--string,
-    &.syntax--variable {
-      color: if(@base16-invertColors, @dark-gray, @very-light-gray);
+
+    //Decorators/annotation
+    &.syntax--annotation {
+      color: @brown;   //@base16-color-base0F
     }
 
+    &.syntax--arguments{
+      color: @blue;   //@base16-color-base0D
+    }
+
+    &.syntax--array {
+      color: @very-light-gray;   //@base16-color-base05
+    }
+
+    &.syntax--begin {
+      color: @very-light-gray;   //@base16-color-base05
+    }
+
+    &.syntax--block {
+      color: @very-light-gray;   //@base16-color-base05
+    }
+
+    //Bold
     &.syntax--bold {
-      color: @yellow;
       font-weight: bold;
+      color: @yellow;   //@base16-color-base0A
     }
 
+    //Comments
     &.syntax--comment {
-      color: if(@base16-invertColors, @light-gray, @gray);
+      color: @gray;   //@base16-color-base03
     }
 
+    //Attribute IDs
     &.syntax--entity {
-      color: @blue;
+      color: @blue;   //@base16-color-base0D
     }
 
+    &.syntax--end {
+      color: @very-light-gray;   //@base16-color-base05
+    }
+
+    &.function.lambda {
+      color: @very-light-gray;   //@base16-color-base05
+    }
+
+    //Italic
     &.syntax--italic {
       font-style: italic;
-      color: @purple;
-    }
-  }
-
-  &.syntax--section {
-    &.syntax--embedded {
-      color: @brown;
-    }
-  }
-}
-
-.syntax--storage {
-  color: @purple;
-}
-
-// "string"
-.syntax--string {
-  color: @green;
-
-  // :immutable
-  &.syntax--immutable {
-    color: @green;
-  }
-
-  // ${variable} %().2f {0:<30}
-  &.syntax--part {
-    color: darken(@green, 15%);
-  }
-
-  // /^reg[ex]?p/
-  &.syntax--regexp {
-    color: @green;
-
-    // ^ $ \b ? + i
-    &.syntax--language {
-      color: @cyan;
+      color: @purple;   //@base16-color-base0E
     }
 
-    // <variable> \1
+    //Markdown - Raw Block Fenced
+    &.syntax--markdown {
+      background-color: @light-gray;   //@base16-color-base04
+      color: @light-gray;   //@base16-color-base04
+    }
+
+    //Punctuation
+    &.syntax--parameters {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //Punctuation
+    &.syntax--string {
+      color: @cyan;   //@base16-color-base0C
+
+      //Link Text
+      &.syntax--end.syntax--markdown {
+        color: @red;   //@base16-color-base08
+      }
+    }
+
+    //Tag start/end
+    &.syntax--tag {
+      color: @blue;   //@base16-color-base0D
+
+      //Tag start/end
+      &.syntax--begin {
+        color: @blue;   //@base16-color-base0D
+      }
+
+      //Tag start/end
+      &.syntax--end {
+        color: @blue;   //@base16-color-base0D
+      }
+    }
+
+    //JavaScript/TypeScript interpolation punctuation
+    &.syntax--template-expression {
+      color: @orange;   //@base16-color-base09
+    }
+
+    //Punctuation
     &.syntax--variable {
-      color: @cyan;
+      color: @very-light-gray;   //@base16-color-base05
+    }
+  }
+
+  &.syntax--function.syntax--arrow {
+      color: @blue;   //@base16-color-base0D
+  }
+
+  //Punctuation
+  &.syntax--section {
+    color: @light-gray;   //@base16-color-base04
+
+    //Ruby interpolation punctuation
+    &.syntax--interpolation {
+      color: @orange;   //@base16-color-base09
     }
 
-    // r" /
-    &.syntax--punctuation {
-      color: @green;
+    //Embedded
+    &.syntax--embedded {
+    color: @brown;   //@base16-color-base0F
+  }
+  }
 
-      // ( ) [^ ] (?= ) |
-      &.syntax--part {
-        color: @cyan;
+  //Separators like ; or ,
+  &.syntax--separator {
+    color: @light-gray;   //@base16-color-base04
+  }
+
+  //Separators like ; or ,
+  &.syntax--terminator {
+    color: @light-gray;   //@base16-color-base04
+  }
+}
+
+.syntax--source {
+
+  //Types fixes
+  &.syntax--c .syntax--storage.syntax--type {
+    color: @blue;   //@base16-color-base0D
+  }
+  &.syntax--css {
+
+    //CSS tag names
+    .syntax--entity.syntax--name.syntax--tag {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //CSS browser prefix
+    .syntax--support.syntax--type {
+      color: @light-gray;   //@base16-color-base04
+    }
+  }
+
+  //Library class/type
+  &.syntax--go .syntax--storage.syntax--type {
+    color: @blue;   //@base16-color-base0D
+  }
+
+  //Types fixes
+  &.syntax--haskell .syntax--storage.syntax--type {
+    color: @blue;   //@base16-color-base0D
+  }
+  &.syntax--java {
+
+    //Java keyword fixes
+    .syntax--meta.syntax--class.syntax--java .syntax--meta.syntax--class.syntax--identifier.syntax--java .syntax--storage.syntax--type.syntax--java {
+      color: @orange;   //@base16-color-base09
+    }
+
+    //Types fixes
+    .syntax--storage.syntax--type {
+      color: @blue;   //@base16-color-base0D
+
+      //Java primitive variable types
+      &.syntax--primitive {
+        color: @blue;   //@base16-color-base0D
       }
     }
   }
+
+  //Entity name
+  &.syntax--js .syntax--meta.syntax--function-call.syntax--constructor .syntax--variable.syntax--type {
+    color: @blue;   //@base16-color-base0D
+  }
+  &.syntax--less {
+
+    //CSS tag names
+    .syntax--entity.syntax--name.syntax--tag {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //CSS browser prefix
+    .syntax--support.syntax--type {
+      color: @light-gray;   //@base16-color-base04
+    }
+  }
+
+  //Ruby class methods
+  &.syntax--ruby .syntax--variable.syntax--other.syntax--readwrite {
+    color: @yellow;   //@base16-color-base0A
+  }
+  &.syntax--sass {
+
+    //CSS tag names
+    .syntax--entity.syntax--name.syntax--tag {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //CSS browser prefix
+    .syntax--support.syntax--type {
+      color: @light-gray;   //@base16-color-base04
+    }
+  }
+  &.syntax--scss {
+
+    //CSS tag names
+    .syntax--entity.syntax--name.syntax--tag {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //CSS browser prefix
+    .syntax--support.syntax--type {
+      color: @light-gray;   //@base16-color-base04
+    }
+  }
+  &.syntax--stylus {
+
+    //CSS tag names
+    .syntax--entity.syntax--name.syntax--tag {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //CSS browser prefix
+    .syntax--support.syntax--type {
+      color: @light-gray;   //@base16-color-base04
+    }
+  }
+
+  //Types fixes
+  &.syntax--zig .syntax--storage.syntax--type {
+    color: @blue;   //@base16-color-base0D
+  }
 }
 
-.syntax--support {
-  &.syntax--class {
-    color: @yellow;
-  }
-
+//Storage
+.syntax--storage {
+  color: @purple;   //@base16-color-base0E
   &.syntax--type {
-    color:  @cyan;
-  }
 
-  &.syntax--function {
-    color: @cyan;
+    //Decorators/annotation
+    &.syntax--annotation {
+      color: @brown;   //@base16-color-base0F
+    }
 
-    &.syntax--any-method {
-      color: @blue;
+    //Lambda arrow
+    &.syntax--function {
+      color: @purple;   //@base16-color-base0E
+    }
+
+    //Storage
+    &.syntax--keyword {
+      color: @purple;   //@base16-color-base0E
     }
   }
 }
 
-.syntax--variable {
-  color: @red;
+//Strings, Inherited Class
+.syntax--string {
+  color: @green;   //@base16-color-base0B
 
-  &.syntax--interpolation {
-    color: @brown;
+  //Link Text
+  &.syntax--other.syntax--link {
+    color: @red;   //@base16-color-base08
   }
 
+  //String
+  &.syntax--quoted {
+    color: @green;   //@base16-color-base0B
+
+    &.triple {
+      font-style: italic;
+    }
+  }
+
+  //Regular Expressions and Escape Characters
+  &.syntax--regexp {
+    color: @cyan;   //@base16-color-base0C
+  }
+
+  //String
+  // &:not(.syntax--meta.syntax--template) {
+  //   color: @green;   //@base16-color-base0B
+  // }
+}
+
+.syntax--support {
+  color: @cyan;   //@base16-color-base0C
+
+  //Classes
+  &.syntax--class {
+    color: @yellow;   //@base16-color-base0A
+  }
+
+  //Library constant
+  &.syntax--constant {
+    font-style: italic;
+    color: @orange;   //@base16-color-base09
+  }
+
+  //Library function
+  &.syntax--function {
+    color: @blue;   //@base16-color-base0D
+
+    //Functions
+    &.syntax--any-method {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //Function call
+    &.syntax--go {
+      color: @brown;   //@base16-color-base0F
+    }
+  }
+
+  //Library function
+  &.syntax--macro {
+    color: @red;   //@base16-color-base08
+  }
+
+  &.syntax--object {
+    color: @yellow;   //@base16-color-base0A
+  }
+
+  &.syntax--property {
+    color: @very-light-gray;   //@base16-color-base05
+  }
+
+  &.syntax--storage.syntax--type {
+    color: @purple;   //@base16-color-base0E
+  }
+
+  //Library class/type
+  &.syntax--type {
+    color: @purple;   //@base16-color-base0E
+
+    &.constructor {
+      color: @blue;   //@base16-color-base0D
+    }
+
+    //CSS Properties
+    &.syntax--property-name {
+      font-weight: normal;
+      font-style: normal;
+      color: @blue;   //@base16-color-base0D
+    }
+  }
+}
+
+.syntax--text.syntax--html.syntax--markdown {
+
+  //Markup Raw Inline
+  .syntax--markup.syntax--inline.syntax--raw {
+    color: @brown;   //@base16-color-base0F
+  }
+
+  //Markdown - Line Break
+  .syntax--meta.syntax--dummy.syntax--line-break {
+    background-color: @light-gray;   //@base16-color-base04
+    color: @light-gray;   //@base16-color-base04
+  }
+}
+
+//Variable
+
+.syntax--variable {
+  color: @red;   //@base16-color-base08
+
+  //Decorators/annotation
+  &.syntax--annotation {
+    color: @brown;   //@base16-color-base0F
+  }
+
+  //Function call
+  &.syntax--function {
+    color: @brown;   //@base16-color-base0F
+  }
+
+  //Embedded
+  &.syntax--interpolation {
+    color: @brown;   //@base16-color-base0F
+  }
+
+  //Language variable
+  &.syntax--language {
+    font-style: italic;
+    color: @red;   //@base16-color-base08
+  }
+
+  //Member Variable
+  &.syntax--member {
+    color: @red;   //@base16-color-base08
+  }
+
+  //Function arguments
   &.syntax--parameter {
+    color: @red;   //@base16-color-base08
+
     &.syntax--function {
-      color: if(@base16-invertColors, @dark-gray, @very-light-gray);
+      color: @very-light-gray;   //@base16-color-base05
     }
   }
 }
