@@ -4,19 +4,21 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import json
 
 
-settings_path = "../lib/base16c_settings.json"
+settings_path = "../lib/base16bundle_settings.json"
 package_path = "../package.json"
 
 banner_size = (820, 205)
-crop_start = (240, 190)
+final_width = 720
+final_size = (final_width, int(banner_size[1] * (final_width / banner_size[0])))
+crop_topleft = (240, 190)
 mask_size = ([i * 4 for i in banner_size])
 
 banner = Image.new("RGB", banner_size, 0)
 crop = ( \
-    crop_start[0], \
-    crop_start[1], \
-    crop_start[0] + banner_size[0], \
-    crop_start[1] + banner_size[1] \
+    crop_topleft[0], \
+    crop_topleft[1], \
+    crop_topleft[0] + banner_size[0], \
+    crop_topleft[1] + banner_size[1] \
     )
 
 screenshots = sorted(Path("./screenshots/").glob("*.png"))
@@ -29,10 +31,15 @@ for index, screenshot in enumerate(screenshots):
     draw = ImageDraw.Draw(mask)
     for y in range(mask_size[1]):
         for x in range(mask_size[0]):
-            if (x + 1.5 * y) < (banner_size[0] * 2/len(screenshots)) * index * 4:
+            if (x + 1.5 * (mask_size[1] - y)) < (banner_size[0] * 1.5 / len(screenshots)) * index * 4:
                 mask.putpixel((x, y), 0) # Black pixel
 
     mask = mask.resize(banner_size, Image.Resampling.LANCZOS)
+
+    shadow = Image.new("L", banner_size, 0)
+    shadowmask = mask.copy().filter(ImageFilter.GaussianBlur(radius = 3))
+
+    banner.paste(shadow, (0, 0), shadowmask)
     banner.paste(cropped, (0, 0), mask)
 
 shadows = Image.new("RGBA", banner_size, (0, 0, 0, 0))
@@ -85,9 +92,9 @@ rect_count_offsetted = (\
     rect_count[3] + voffset_count + rect_radius\
    )
 
-draw.rounded_rectangle(rect_title_offsetted, radius = rect_radius, fill=(0, 0, 0, 127))
-draw.rounded_rectangle(rect_version_offsetted, radius = rect_radius, fill=(0, 0, 0, 127))
-draw.rounded_rectangle(rect_count_offsetted, radius = rect_radius, fill=(0, 0, 0, 127))
+draw.rounded_rectangle(rect_title_offsetted, radius = rect_radius, fill=(0, 0, 0, 150))
+draw.rounded_rectangle(rect_version_offsetted, radius = rect_radius, fill=(0, 0, 0, 150))
+draw.rounded_rectangle(rect_count_offsetted, radius = rect_radius, fill=(0, 0, 0, 150))
 
 shadows = shadows.filter(ImageFilter.GaussianBlur(radius = 15))
 
@@ -101,5 +108,7 @@ draw.text((hoffset_count, voffset_count), text_count, fill=color_fill, stroke_fi
 banner.paste(shadows, (0, 0), mask = shadows)
 banner.paste(overlay, (0, 0), mask = overlay)
 
-banner.show()
+banner = banner.resize(final_size, Image.Resampling.LANCZOS)
+
+# banner.show()
 banner.save("../banner.png")
