@@ -159,7 +159,7 @@
 .syntax--keyword {
   color: @purple;   //@base16-color-base0E
 
-  &.control.lambda {
+  &.syntax--control.syntax--lambda {
     color: @blue;   //@base16-color-base0D
   }
 
@@ -168,17 +168,17 @@
     color: @purple;   //@base16-color-base0E
 
     //Operators =, +=, -= etc
-    &.assignment {
+    &.syntax--assignment {
       color: @purple;   //@base16-color-base0E
     }
 
     //Comparison operators ==, !=, >, < etc
-    &.comparison {
+    &.syntax--comparison {
       color: @cyan;   //@base16-color-base0C
     }
 
     //Operators and, or, not etc
-    &.logical {
+    &.syntax--logical {
       color: @cyan;   //@base16-color-base0C
     }
   }
@@ -436,7 +436,7 @@
       color: @very-light-gray;   //@base16-color-base05
     }
 
-    &.function.lambda {
+    &.syntax--function.syntax--lambda {
       color: @very-light-gray;   //@base16-color-base05
     }
 
@@ -668,7 +668,7 @@
   &.syntax--quoted {
     color: @green;   //@base16-color-base0B
 
-    &.triple {
+    &.syntax--triple {
       font-style: italic;
     }
   }
@@ -734,7 +734,7 @@
   &.syntax--type {
     color: @purple;   //@base16-color-base0E
 
-    &.constructor {
+    &.syntax--constructor {
       color: @blue;   //@base16-color-base0D
     }
 
