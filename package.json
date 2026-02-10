@@ -1,9 +1,9 @@
 {
-  "name": "base16-ultimate-bundle-syntax",
+  "name": "base24-ultimate-bundle-syntax",
   "theme": "syntax",
   "main": "./lib/base16bundle",
   "version": "1.8.1",
-  "description": "A Base16 syntax theme bundle for Pulsar with support for all Base16 color schemes.",
+  "description": "A Base24 syntax theme bundle for Pulsar with support for all Base16 color schemes.",
   "keywords": [
     "0x96f",
     "3024",
@@ -233,7 +233,7 @@
     "preview.gif",
     "README.md"
   ],
-  "repository": "https://github.com/Digital-Punishment/base16-ultimate-bundle-syntax",
+  "repository": "https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax",
   "license": "MIT",
   "engines": {
     "atom": ">=1.13.0 <2.0.0"
