@@ -197,7 +197,7 @@
       "title": "Contrast Gutter",
       "description": "Change Gutter background color",
       "type": "boolean",
-      "default": true
+      "default": false
     },
     "invertColors": {
       "order": 3,
