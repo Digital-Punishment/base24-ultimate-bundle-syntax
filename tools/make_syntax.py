@@ -11,9 +11,7 @@ import re
 import requests
 import time
 
-base16_dark = "https://raw.githubusercontent.com/base16-builder/base16-builder/refs/heads/master/db/templates/textmate/dark.ejs"
-base16_light = "https://raw.githubusercontent.com/base16-builder/base16-builder/refs/heads/master/db/templates/textmate/light.ejs"
-base16_tinted = "https://raw.githubusercontent.com/tinted-theming/tinted-sublime-text/refs/heads/main/templates/base16-color-scheme.mustache"
+base24_tinted = "https://raw.githubusercontent.com/tinted-theming/tinted-sublime-text/refs/heads/main/templates/base24-color-scheme.mustache"
 
 templates_dir = "./templates"
 styles_dir = "./styles"
@@ -22,13 +20,13 @@ MAX_AGE = 30 #days
 
 colors_dict = {
     "black":           "00",
-    "very-dark-gray":  "01",
+    "darkest-gray":    "01",
     "dark-gray":       "02",
     "gray":            "03",
     "light-gray":      "04",
-    "very-light-gray": "05",
-    "almost-white":    "06",
-    "white":           "07",
+    "white":           "05",
+    "lighter-white":   "06",
+    "bright-white":    "07",
 
     "red":             "08",
     "orange":          "09",
@@ -36,10 +34,19 @@ colors_dict = {
     "green":           "0B",
     "cyan":            "0C",
     "blue":            "0D",
-    "purple":          "0E",
-    "brown":           "0F",
+    "magenta":         "0E",
+    "dark-red":        "0F",
+
+    "darker-black":    "10",
+    "darkest-black":   "11",
+    "bright-red":      "12",
+    "bright-yellow":   "13",
+    "bright-green":    "14",
+    "bright-cyan":     "15",
+    "bright-blue":     "16",
+    "bright-magenta":  "17",
 }
-base16_dict = {v: k for k, v in colors_dict.items()}
+base24_dict = {v: k for k, v in colors_dict.items()}
 
 lambda i: i.split("_")[1].upper()
 
@@ -211,8 +218,9 @@ def less_color(text_element : str) -> str:
         print("---!!! no match !!!---", text_element)
     color_idx = color_idx.removeprefix('base["').removesuffix('"]["hex"]')
     color_idx = color_idx.removeprefix("{{base").removesuffix("-hex}}")
+    color_idx = color_idx.upper()
 
-    return f"@{base16_dict[color_idx]};   //@base16-color-base{color_idx}"
+    return f"@{base24_dict[color_idx]};   //@base24-color-base{color_idx}"
 
 
 def generate_variables(theme : dict, source : str) ->str:
@@ -274,26 +282,26 @@ def generate_variables(theme : dict, source : str) ->str:
     result += f"@syntax-gutter-background-color-selected:   {gutter_background_selected_color};\n"
 
     result += "\n// For git diff info. i.e. in the gutter\n"
-    result += "@syntax-color-renamed:                      @blue;                      //@base16-color-base0D;\n"
-    result += "@syntax-color-added:                        @green;                     //@base16-color-base0B;\n"
-    result += "@syntax-color-modified:                     @orange;                    //@base16-color-base09;\n"
-    result += "@syntax-color-removed:                      @red;                       //@base16-color-base08;\n"
+    result += "@syntax-color-renamed:                      @blue;                      //@base24-color-base0D;\n"
+    result += "@syntax-color-added:                        @green;                     //@base24-color-base0B;\n"
+    result += "@syntax-color-modified:                     @orange;                    //@base24-color-base09;\n"
+    result += "@syntax-color-removed:                      @red;                       //@base24-color-base08;\n"
 
     result += "\n// For language entity colors\n"
-    result += "@syntax-color-variable:                     @red;                       //@base16-color-base08;\n"
-    result += "@syntax-color-comment:                      @green;                     //@base16-color-base0B;\n"
-    result += "@syntax-color-constant:                     @orange;                    //@base16-color-base09;\n"
+    result += "@syntax-color-variable:                     @red;                       //@base24-color-base08;\n"
+    result += "@syntax-color-comment:                      @green;                     //@base24-color-base0B;\n"
+    result += "@syntax-color-constant:                     @orange;                    //@base24-color-base09;\n"
     result += "@syntax-color-property:                     @syntax-text-color;\n"
-    result += "@syntax-color-value:                        @green;                     //@base16-color-base0B;\n"
-    result += "@syntax-color-function:                     @blue;                      //@base16-color-base0D;\n"
+    result += "@syntax-color-value:                        @green;                     //@base24-color-base0B;\n"
+    result += "@syntax-color-function:                     @blue;                      //@base24-color-base0D;\n"
     result += "@syntax-color-method:                       @syntax-color-function;\n"
-    result += "@syntax-color-class:                        @yellow;                    //@base16-color-base0A;\n"
-    result += "@syntax-color-keyword:                      @purple;                    //@base16-color-base0E;\n"
-    result += "@syntax-color-tag:                          @red;                       //@base16-color-base08;\n"
-    result += "@syntax-color-attribute:                    @orange;                    //@base16-color-base09;\n"
-    result += "@syntax-color-import:                       @purple;                    //@base16-color-base0E;\n"
-    result += "@syntax-color-snippet:                      @green;                     //@base16-color-base0B;\n"
-    result += "@syntax-color-string:                       @green;                     //@base16-color-base0B;\n"
+    result += "@syntax-color-class:                        @yellow;                    //@base24-color-base0A;\n"
+    result += "@syntax-color-keyword:                      @magenta;                    //@base24-color-base0E;\n"
+    result += "@syntax-color-tag:                          @red;                       //@base24-color-base08;\n"
+    result += "@syntax-color-attribute:                    @orange;                    //@base24-color-base09;\n"
+    result += "@syntax-color-import:                       @magenta;                    //@base24-color-base0E;\n"
+    result += "@syntax-color-snippet:                      @green;                     //@base24-color-base0B;\n"
+    result += "@syntax-color-string:                       @green;                     //@base24-color-base0B;\n"
 
 
     return result
@@ -440,6 +448,4 @@ def convert_template(template_path : str) -> NoReturn:
 
 
 if __name__ == "__main__":
-    convert_template(base16_dark)
-    convert_template(base16_light)
-    convert_template(base16_tinted)
+    convert_template(base24_tinted)

@@ -1,21 +1,30 @@
 @import "scheme";
 
 // Grayscale
-@black:           if(@base16-invertColors, @base16-color-base07, @base16-color-base00); //Default Background
-@very-dark-gray:  if(@base16-invertColors, @base16-color-base06, @base16-color-base01); //Lighter Background (Used for status bars)
-@dark-gray:       if(@base16-invertColors, @base16-color-base05, @base16-color-base02); //Selection Background
-@gray:            if(@base16-invertColors, @base16-color-base04, @base16-color-base03); //Comments, Invisibles, Line Highlighting
-@light-gray:      if(@base16-invertColors, @base16-color-base03, @base16-color-base04); //Dark Foreground (Used for status bars)
-@very-light-gray: if(@base16-invertColors, @base16-color-base02, @base16-color-base05); //Default Foreground, Caret, Delimiters, Operators
-@almost-white:    if(@base16-invertColors, @base16-color-base01, @base16-color-base06); //Light Foreground
-@white:           if(@base16-invertColors, @base16-color-base00, @base16-color-base07); //The Lightest Foreground
+@black:           if(@base24-invertColors, @base24-color-base07, @base24-color-base00); //Default Background
+@darkest-gray:    if(@base24-invertColors, @base24-color-base06, @base24-color-base01); //Lighter Background (Used for status bars)
+@dark-gray:       if(@base24-invertColors, @base24-color-base05, @base24-color-base02); //Selection Background
+@gray:            if(@base24-invertColors, @base24-color-base04, @base24-color-base03); //Comments, Invisibles, Line Highlighting
+@light-gray:      if(@base24-invertColors, @base24-color-base03, @base24-color-base04); //Dark Foreground (Used for status bars)
+@white:           if(@base24-invertColors, @base24-color-base02, @base24-color-base05); //Default Foreground, Caret, Delimiters, Operators
+@lighter-white:   if(@base24-invertColors, @base24-color-base01, @base24-color-base06); //Light Foreground (Not often used)
+@bright-white:    if(@base24-invertColors, @base24-color-base00, @base24-color-base07); //The Lightest Foreground (Not often used)
 
 // Colors
-@red:             @base16-color-base08; //Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-@orange:          @base16-color-base09; //Integers, Boolean, Constants, XML Attributes, Markup Link Url
-@yellow:          @base16-color-base0A; //Classes, Markup Bold, Search Text Background
-@green:           @base16-color-base0B; //Strings, Inherited Class, Markup Code, Diff Inserted
-@cyan:            @base16-color-base0C; //Support, Regular Expressions, Escape Characters, Markup Quotes
-@blue:            @base16-color-base0D; //Functions, Methods, Attribute IDs, Headings
-@purple:          @base16-color-base0E; //Keywords, Storage, Selector, Markup Italic, Diff Changed
-@brown:           @base16-color-base0F; //Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+@red:             @base24-color-base08; //Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+@orange:          @base24-color-base09; //Integers, Boolean, Constants, XML Attributes, Markup Link Url
+@yellow:          @base24-color-base0A; //Classes, Markup Bold, Search Text Background
+@green:           @base24-color-base0B; //Strings, Inherited Class, Markup Code, Diff Inserted
+@cyan:            @base24-color-base0C; //Support, Regular Expressions, Escape Characters, Markup Quotes
+@blue:            @base24-color-base0D; //Functions, Methods, Attribute IDs, Headings
+@magenta:         @base24-color-base0E; //Keywords, Storage, Selector, Markup Italic, Diff Changed
+@dark-red:        @base24-color-base0F; //Deprecated Highlighting for Methods and Functions, Opening/Closing Embedded Language Tags, e.g., <?php ?>
+
+@darker-black:    @base24-color-base10; //Darker Background
+@darkest-black:   @base24-color-base11; //The Darkest Background
+@bright-red:      @base24-color-base12;
+@bright-yellow:   @base24-color-base13;
+@bright-green:    @base24-color-base14;
+@bright-cyan:     @base24-color-base15;
+@bright-blue:     @base24-color-base16;
+@bright-magenta:  @base24-color-base17;

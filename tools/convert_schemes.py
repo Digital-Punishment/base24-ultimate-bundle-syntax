@@ -10,7 +10,7 @@ import re
 
 source_path = "../tools/schemes/base24"
 schemes_path = "../styles/schemes"
-settings_path = "../lib/base16bundle_settings.json"
+settings_path = "../lib/base24bundle_settings.json"
 package_path = "../package.json"
 readme_path = "../README.md"
 

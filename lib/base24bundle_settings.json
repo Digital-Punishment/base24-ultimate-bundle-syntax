@@ -4,7 +4,7 @@
       "order": 1,
       "title": "Color Scheme",
       "type": "string",
-      "default": "Default Dark",
+      "default": "One Dark",
       "enum": [
         "0X96F",
         "3024 Day",
