@@ -8,7 +8,7 @@ import yaml
 import json
 import re
 
-source_path = "../tools/schemes/base16"
+source_path = "../tools/schemes/base24"
 schemes_path = "../styles/schemes"
 settings_path = "../lib/base16bundle_settings.json"
 package_path = "../package.json"
@@ -86,12 +86,12 @@ def convert_scheme(scheme_path: Path) -> str:
 
 def generate_readme(name_list: list) -> str:
     """Generate README.md file."""
-    readme_content = "# Base16 Ultimate Syntax Theme Bundle\n"
-    readme_content += "\n![Base16 Banner](https://github.com/Digital-Punishment/base16-ultimate-bundle-syntax/blob/master/banner.png?raw=true)\n"
-    readme_content += f"\nA Base16 syntax theme bundle for Pulsar with {len(name_list)} [Base16](https://github.com/tinted-theming/home) color schemes inside.\n"
+    readme_content = "# Base24 Ultimate Syntax Theme Bundle\n"
+    readme_content += "\n![Base24 Banner](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/banner.png?raw=true)\n"
+    readme_content += f"\nA Base24 syntax theme bundle for Pulsar with {len(name_list)} [Base24](https://github.com/tinted-theming/home) color schemes inside.\n"
 
     readme_content += "\n<details>\n"
-    readme_content += "\n<summary>The following Base16 color schemes are included:</summary>\n"
+    readme_content += "\n<summary>The following Base24 color schemes are included:</summary>\n"
 
     schemes_list = ""
     for name in name_list:
@@ -105,29 +105,29 @@ def generate_readme(name_list: list) -> str:
                     author = line.lstrip("/").lstrip(" ").rstrip("\n").removeprefix("Author: ")
         schemes_list += f"\n> ###### {name} (Author: {"Unknown" if author == "" else author}):\n"
         if preview_path.exists():
-            schemes_list += f">![name](https://github.com/Digital-Punishment/base16-ultimate-bundle-syntax/blob/master/styles/schemes/{scheme_filename}.png?raw=true)\n"
+            schemes_list += f">![name](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/styles/schemes/{scheme_filename}.png?raw=true)\n"
 
     readme_content += schemes_list
     readme_content += "\n</details>\n"
 
     readme_content +="\nEach color scheme can be used in a `Dark` or `Light` style.\n"
 
-    readme_content +="\n## Install Base16 Ultimate Bundle\n"
-    readme_content +="\nBase16 Ultimate Bundle can be installed by going to the _Settings_ view (<kbd>Ctrl + ,</kbd>). Select the _Install_ section on the left, hit the _Themes_ button and search for `Base16 Ultimate Bundle` in the search box. Click on _Install_ on the Base16 Ultimate Bundle card.\n"
+    readme_content +="\n## Install Base24 Ultimate Bundle\n"
+    readme_content +="\nBase24 Ultimate Bundle can be installed by going to the _Settings_ view (<kbd>Ctrl + ,</kbd>). Select the _Install_ section on the left, hit the _Themes_ button and search for `Base24 Ultimate Bundle` in the search box. Click on _Install_ on the Base24 Ultimate Bundle card.\n"
     readme_content +="\nAlternatively, open a terminal and type in\n"
-    readme_content +="\n```\n ppm install base16-ultimate-bundle-syntax \n```\n"
+    readme_content +="\n```\n ppm install base24-ultimate-bundle-syntax \n```\n"
     readme_content +="\nor\n"
-    readme_content +="\n```\n pulsar --package install base16-ultimate-bundle-syntax \n```\n"
+    readme_content +="\n```\n pulsar --package install base24-ultimate-bundle-syntax \n```\n"
 
-    readme_content +="\n## Enable Base16 Ultimate Bundle\n"
+    readme_content +="\n## Enable Base24 Ultimate Bundle\n"
     readme_content +="\nBase16 Ultimate Bundle can be enabled by going to the _Settings_ view (<kbd>Ctrl + ,</kbd>). Select the _Themes_ section on the left side and choose _Base16 Ultimate Bundle_ from the _Syntax Theme_ drop down menu.\n"
 
-    readme_content +="\n## Change Base16 color scheme\n"
+    readme_content +="\n## Change Base24 color scheme\n"
     readme_content +="\nThe `Default Dark` color scheme is loaded by default.\n"
-    readme_content +="\nThe scheme can be changed by choosing a different `scheme` from the drop down menu in the `Base16 Ultimate Bundle` _Settings_ view.\n"
+    readme_content +="\nThe scheme can be changed by choosing a different `scheme` from the drop down menu in the `Base24 Ultimate Bundle` _Settings_ view.\n"
     readme_content +="\nMany schemes have `Dark`, `Light` and other variants, but it is also possible to invert text/background colors with `Invert Colors` toggle. This way `Dark` scheme turns into `Light` and vice versa. Most schemes support this feature, but in some cases it may lead to some undesirable effects and color combinations.\n"
-    readme_content +="\nAlternatively, the theme can be changed in the Preview Mode. Toggle the _Command Palette_ (<kbd>Ctrl + Shift + P</kbd>). Type in `Base16 Ultimate Bundle Syntax: Select Theme` and choose another theme from the list. While browsing through the list of available themes a live preview of each selected theme is automatically applied to all open files.\n"
-    readme_content +="\n![Base16 Syntax Preview](https://github.com/Digital-Punishment/base16-ultimate-bundle-syntax/blob/master/preview.gif?raw=true)\n"
+    readme_content +="\nAlternatively, the theme can be changed in the Preview Mode. Toggle the _Command Palette_ (<kbd>Ctrl + Shift + P</kbd>). Type in `Base24 Ultimate Bundle Syntax: Select Theme` and choose another theme from the list. While browsing through the list of available themes a live preview of each selected theme is automatically applied to all open files.\n"
+    readme_content +="\n![Base24 Syntax Preview](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/preview.gif?raw=true)\n"
 
     readme_content +="\n## Credits\n"
     readme_content +="\nThis is a fork of [Base16 Syntax Theme](https://packages.pulsar-edit.dev/packages/base16-syntax) by [Alchiadus](https://github.com/Alchiadus).\n"
@@ -150,7 +150,7 @@ if __name__ == "__main__":
         json.dump(settings_content, settings_file, indent = 2)
 
     keywords = {lower_keyword(name) for name in name_list}
-    keywords.add("base16")
+    keywords.add("base24")
     with Path(package_path).open(mode = "r") as package_file:
         package_content = json.loads(package_file.read())
     package_content["keywords"] = sorted(keywords)
