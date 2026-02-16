@@ -2,7 +2,7 @@
   "name": "base24-ultimate-bundle-syntax",
   "theme": "syntax",
   "main": "./lib/base24bundle",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "description": "A Base24 syntax theme bundle for Pulsar with support for all Base16 color schemes.",
   "keywords": [
     "0x96f",
