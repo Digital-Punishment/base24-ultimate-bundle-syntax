@@ -10,7 +10,7 @@ package_path = "../package.json"
 banner_size = (820, 205)
 final_width = 720
 final_size = (final_width, int(banner_size[1] * (final_width / banner_size[0])))
-crop_topleft = (240, 190)
+crop_topleft = (253, 197)
 mask_size = ([i * 4 for i in banner_size])
 
 banner = Image.new("RGB", banner_size, 0)
@@ -65,7 +65,7 @@ voffset_title = 10
 voffset_version = 130
 voffset_count = 160
 
-color_fill = (251, 241, 200)
+color_fill = (247, 247, 247) #(251, 241, 200)
 color_stroke = (26, 25, 24)
 
 rect_radius = 10
