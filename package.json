@@ -1,5 +1,5 @@
 {
-  "name": "base24-ultimate-bundle-syntax",
+  "name": "base24-ultimate-bundle-syntax-dev",
   "theme": "syntax",
   "main": "./lib/base24bundle",
   "version": "1.8.1",
