@@ -152,7 +152,7 @@ A Base24 syntax theme bundle for Pulsar with 184 [Base24](https://github.com/tin
 > ###### Dimmed Monokai (Author: FredHappyface (https://github.com/fredHappyface)):
 >![name](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/styles/schemes/dimmed-monokai.png?raw=true)
 
-> ###### Dracula (Author: FredHappyface (https://github.com/fredHappyface)):
+> ###### Dracula (Author: clach04 (https://github.com/clach04)):
 >![name](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/styles/schemes/dracula.png?raw=true)
 
 > ###### Earthsong (Author: FredHappyface (https://github.com/fredHappyface)):
