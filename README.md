@@ -2,7 +2,7 @@
 
 ![Base24 Banner](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/banner.png?raw=true)
 
-A Base24 syntax theme bundle for Pulsar with 184 [Base24](https://github.com/tinted-theming/home) color schemes inside.
+A Base24 syntax theme bundle for Pulsar with 185 [Base24](https://github.com/tinted-theming/home) color schemes inside.
 
 <details>
 
@@ -22,6 +22,9 @@ A Base24 syntax theme bundle for Pulsar with 184 [Base24](https://github.com/tin
 
 > ###### Alien Blood (Author: FredHappyface (https://github.com/fredHappyface)):
 >![name](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/styles/schemes/alien-blood.png?raw=true)
+
+> ###### Alucard (Author: clach04 (https://github.com/clach04)):
+>![name](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/styles/schemes/alucard.png?raw=true)
 
 > ###### Argonaut (Author: FredHappyface (https://github.com/fredHappyface)):
 >![name](https://github.com/Digital-Punishment/base24-ultimate-bundle-syntax/blob/master/styles/schemes/argonaut.png?raw=true)
